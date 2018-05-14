@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.mapper.UserDao">
+    <insert id="addUser" keyProperty="user.id" keyColumn="id" parameterType="com.example.dao.bean.User" useGeneratedKeys="true">
+        INSERT INTO user (`name`,`age`, `sex`, `email`, `password`, `hobby`, `address`)
+            VALUES (#{user.name}, #{user.age}, #{user.sex}, #{user.email}, #{user.password}, #{user.hobby}, #{user.address})
+    </insert>
+
+    <select id="getUserList" resultType="com.example.dao.bean.User">
+        SELECT * FROM user LIMIT #{start}, #{count}
+    </select>
+
+    <select id="getUserByName" resultType="com.example.dao.bean.User">
+        SELECT * FROM user WHERE name=#{name}
+    </select>
+
+    <delete id="delele" parameterType="java.lang.String">
+        DELETE FROM user WHERE `name`=#{name}
+    </delete>
+</mapper>
