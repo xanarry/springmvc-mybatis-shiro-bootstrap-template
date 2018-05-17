@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-
-    <!--设置控制器所在的包-->
+    <!--扫描controller所在包的所有控制器, 否则会报No mapping found for HTTP request with URI-->
     <context:component-scan base-package="com.example.controller"/>
-
 
     <!--设置@ResponseBody返回内容的编码为UTF-8,否则中文乱码-->
     <mvc:annotation-driven>
@@ -42,7 +40,6 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-
 
 
 

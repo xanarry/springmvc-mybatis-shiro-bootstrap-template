@@ -33,7 +33,7 @@
     </environments>
 -->
 
-    <mappers>
+<!--    <mappers>
         <mapper resource="com/example/dao/mapper/UserDao.xml"/>
-    </mappers>
+    </mappers>-->
 </configuration>

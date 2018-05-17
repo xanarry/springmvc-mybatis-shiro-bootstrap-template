@@ -1,8 +1,8 @@
 package test;
 
-import com.example.dao.bean.User;
-import com.example.dao.mapper.UserDao;
-import com.example.dao.service.UserService;
+import com.example.dataBase.domain.User;
+import com.example.dataBase.dao.UserDao;
+import com.example.dataBase.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,6 +18,9 @@ public class Main {
 
         List<User> userList = userDao.getUserList(0, 100);
         System.out.println(userList);
+
+        UserService userService = new UserService();
+        System.out.println(userService.getUserList(0, 100));
 
     }
 }

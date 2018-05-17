@@ -1,4 +1,4 @@
-package com.example.dao.bean;
+package com.example.dataBase.domain;
 
 public class User {
     private int id;
