@@ -38,7 +38,7 @@
 <a href="/database/display">显示数据库数据(登录后可访问)</a><br>
 <a href="/getparam?name=xiong&age=24&address=china">get发送参数</a><br>
 <a href="/pathvariable/user/yang/24/chongqing">发送pathvariable参数</a><br>
-<a href="/transaction">执行事务</a>
+<a href="/transaction">执行事务</a><br>
 <button onclick="requestJson()">ajax请求json</button><br>
 <textarea id="result"></textarea>
 </body>
