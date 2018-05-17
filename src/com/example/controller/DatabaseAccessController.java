@@ -1,7 +1,9 @@
 package com.example.controller;
 
-import com.example.dao.bean.User;
-import com.example.dao.mapper.UserDao;
+import com.example.dataBase.domain.User;
+import com.example.dataBase.dao.UserDao;
+import com.example.dataBase.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -14,23 +16,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/database")
-public class DatabaseAccessController implements ApplicationListener<ApplicationEvent> {
+public class DatabaseAccessController {
 
-    private ApplicationContext applicationContext = null;
-    private UserDao userDao = null;
-
-    @Override
-    public void onApplicationEvent(ApplicationEvent applicationEvent) {
-        if (applicationContext == null || userDao == null) {
-            applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");//得到spring容器
-            userDao = (UserDao) applicationContext.getBean("userDao");//获取这个bean
-        }
-    }
-
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "/display")
     public ModelAndView showList() {
-        List<User> userList = userDao.getUserList(0,100);
+        List<User> userList = userService.getUserList(0,100);
         ModelAndView modelAndView = new ModelAndView("database");
         modelAndView.addObject(userList);
         return modelAndView;
@@ -39,7 +32,7 @@ public class DatabaseAccessController implements ApplicationListener<Application
 
     @RequestMapping(value = "/add")
     public String addUser(User user) {
-        userDao.addUser(user);
+        userService.addUser(user);
         System.out.println(user);
         return "redirect:/database/display";
     }
@@ -47,7 +40,7 @@ public class DatabaseAccessController implements ApplicationListener<Application
 
     @RequestMapping(value = "/delete")
     public String deleteUser(String name) {
-        userDao.delele(name);
+        userService.delele(name);
         return "redirect:/database/display";
     }
 

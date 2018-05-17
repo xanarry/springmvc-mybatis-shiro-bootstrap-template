@@ -1,6 +1,6 @@
-package com.example.dao.mapper;
+package com.example.dataBase.dao;
 
-import com.example.dao.bean.User;
+import com.example.dataBase.domain.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

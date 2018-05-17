@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.dao.bean.User;
+import com.example.dataBase.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
